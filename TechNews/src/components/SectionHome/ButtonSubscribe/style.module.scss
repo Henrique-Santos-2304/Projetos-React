@@ -1,0 +1,40 @@
+.buttonSubscript {
+   position: relative;
+   width: 100%;
+   border: none;
+   border-radius: 2rem;
+   margin-top: 0.5rem;
+   padding: 0.6rem 0;
+   font-weight: 800;
+   letter-spacing: 1px;
+   background-color: var(--white);
+   color: var(--gray-900);
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   transition: filter 0.3s;
+
+   &:hover {
+      filter: brightness(0.8);
+   }
+   div {
+      position: absolute;
+      bottom: -50px;
+      left: 30px;
+      background-color: transparent;
+      height: 40px;
+      width: max-content;
+      border-radius: 0.8rem;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+         color: var(--white);
+         font-size: 1.2rem;
+         margin-top: 0;
+      }
+   }
+}

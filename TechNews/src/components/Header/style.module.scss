@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+.headerContainer {
+   height: 5rem;
+}
+.divContent {
+   border-bottom: 1px solid var(--white);
+   border-radius: 1.8rem;
+   max-width: 1120px;
+   padding: 0 2rem;
+   margin: 0 auto;
+   height: 5rem;
+   display: flex;
+   align-items: center;
+
+   div {
+      p {
+         font: 500 3rem Caveat, serif;
+         color: var(--red);
+         span {
+            color: var(--white);
+         }
+      }
+   }
+   nav {
+      margin-left: 4rem;
+      height: 5rem;
+      a {
+         display: inline-block;
+         height: 5rem;
+         padding: 0 0.5rem;
+         line-height: 5rem;
+         font-size: 1.1rem;
+         font-weight: 600;
+         position: relative;
+         color: #cccad1;
+         transition: color 0.2s;
+         & + a {
+            margin-left: 2rem;
+         }
+
+         &:hover {
+            color: var(--white);
+         }
+         &.active {
+            color: var(--white);
+         }
+         &.active::after {
+            content: "";
+            height: 5px;
+            border-radius: 5px 5px 0 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: var(--red);
+         }
+      }
+   }
+   button {
+      margin-left: auto;
+   }
+}

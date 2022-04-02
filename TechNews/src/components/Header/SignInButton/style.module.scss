@@ -1,0 +1,50 @@
+.buttonSignIn {
+   padding: 0.3rem;
+   border-radius: 1.6rem;
+   background: var(--white);
+   color: var(--white);
+   border: none;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-weight: bold;
+   cursor: pointer;
+   transition: all 0.2s;
+
+   &:hover {
+      filter: brightness(0.8);
+   }
+   svg {
+      width: 30px;
+      height: 30px;
+   }
+
+   &#google {
+      margin-left: 0.9em;
+   }
+}
+.buttonSignOut {
+   background-color: transparent;
+   border: 0;
+   padding: 0.3em 1.7rem !important;
+   border-radius: 1.9rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: background-color 0.5s;
+
+   &:hover {
+      filter: brightness(0.8);
+   }
+   .loggedUser {
+      border-radius: 50%;
+      border: 2px solid var(--white) !important;
+   }
+   p {
+      color: var(--white);
+      margin-left: 0.6rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+   }
+}
