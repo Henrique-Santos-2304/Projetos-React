@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "RobotoMono";
+  src: url("../fonts/RobotoMono-Thin.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "RobotoMono", sans-serif;
+}
+
+body {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#051937), color-stop(#004d7a), color-stop(#008793), color-stop(#00bf72), to(#a8eb12));
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+
+.app {
+  margin: 0 auto;
+  height: 100vh;
+  width: 40vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+}
+
+.app .container {
+  margin-top: 30px;
+  height: 450px;
+  width: 350px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 40px #fff;
+          box-shadow: 0 0 40px #fff;
+  background-color: #00c9a7;
+  border-radius: 13px;
+  overflow: hidden;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (25%)[4];
+      grid-template-columns: repeat(4, 25%);
+  -ms-grid-rows: 2fr (1fr)[5];
+      grid-template-rows: 2fr repeat(5, 1fr);
+}
+
+.btns {
+  background-color: #fff;
+  color: #111;
+  font-weight: 900;
+  font-size: 1.4rem;
+  text-align: center;
+  outline: none;
+  border: none;
+}
+
+.btns:hover {
+  background-color: #00c9a7;
+  color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+}
+
+.double {
+  grid-column: span 2;
+}
+
+.triple {
+  grid-column: span 3;
+}
+
+.operations {
+  background-color: #121;
+  color: #fff;
+}
+
+.operations:hover {
+  background-color: #004d7a;
+  color: #fff;
+  border: 2px solid #111;
+  border-radius: 8px;
+}
+
+.display {
+  grid-column: span 4;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-size: 3.5rem;
+  font-weight: 900;
+}
+/*# sourceMappingURL=style.css.map */

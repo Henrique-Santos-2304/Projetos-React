@@ -1,0 +1,11 @@
+// Estilo do display de resultados da calculadora
+.display {
+  grid-column: span 4;
+  padding: 20px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 3.5rem;
+  font-weight: 900;
+}

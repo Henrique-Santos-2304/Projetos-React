@@ -1,0 +1,35 @@
+// Classe dos botões no geral
+.btns {
+  background-color: #fff;
+  color: #111;
+  font-weight: 900;
+  font-size: 1.4rem;
+  text-align: center;
+  outline: none;
+  border: none;
+  &:hover {
+    background-color: #00c9a7;
+    color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 3px;
+  }
+}
+// botões que irão ocupar 2 espaços no grid
+.double {
+  grid-column: span 2;
+}
+// botões que irão ocupar 3 espaços no grid
+.triple {
+  grid-column: span 3;
+}
+// Estilos dos botões de operações matemáticas
+.operations {
+  background-color: #121;
+  color: #fff;
+  &:hover {
+    background-color: #004d7a;
+    color: #fff;
+    border: 2px solid #111;
+    border-radius: 8px;
+  }
+}

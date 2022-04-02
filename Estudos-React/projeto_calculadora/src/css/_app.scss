@@ -1,0 +1,26 @@
+// Container geral da aplicação filho direto de body
+.app {
+  margin: 0 auto;
+  height: 100vh;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+
+  // Containner que segura os elementos display e buttons
+  .container {
+    margin-top: 30px;
+    height: 450px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 0 40px #fff;
+    background-color: #00c9a7;
+    border-radius: 13px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: 2fr repeat(5, 1fr);
+  }
+}

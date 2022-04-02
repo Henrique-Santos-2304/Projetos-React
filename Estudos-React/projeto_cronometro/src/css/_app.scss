@@ -1,0 +1,71 @@
+// Container da Div mãe que segura todos os elementos
+.container {
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  @media screen and(max-width: 500px) {
+    max-width: 250px;
+    margin: 100px auto;
+  }
+
+  // Div que segura os elementos filhos alinhando eles
+  .cronometer {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 5px solid #0073a5;
+    box-shadow: 0 0 40px #f8f8f8;
+    @extend .container;
+    // Animação cronometro responsiva
+    @media screen and(max-width: 500px) {
+      width: 250px;
+      height: 250px;
+    }
+    // Texto do cronometro com o desenho da borda
+    h1 {
+      font-size: 6rem;
+      padding: 20px;
+      border-bottom: 5px solid #111;
+      border-radius: 50px;
+      @media screen and(max-width: 500px) {
+        font-size: 3rem;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+      }
+    }
+    // Estilização dos botões
+    .buttons {
+      margin: 40px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // Botões Responsivo
+      @media screen and(max-width: 500px) {
+        margin: 5px;
+      }
+      button {
+        border: 0;
+        background-color: #d2eee8;
+        color: #111;
+        font-weight: 900;
+        font-size: 1.3rem;
+        margin: 20px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.7;
+        }
+        @media screen and(max-width: 500px) {
+          font-size: 1rem;
+          margin: 6px 3px;
+          padding: 1px 5px;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}

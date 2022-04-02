@@ -1,0 +1,35 @@
+.container {
+  padding: 50px;
+  margin: 70px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  max-height: 60%;
+  box-shadow: 0 0 50px #af458e;
+  border-radius: 40px;
+  @media screen and (max-width: 500px) {
+    max-width: 300px;
+  }
+
+  .imgSort {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 50%;
+    border: 1px solid #df8;
+    box-shadow: 0 0 30px #af458e;
+    margin: 20px;
+  }
+  button {
+    color: #fff;
+    letter-spacing: 1px;
+    padding: 10px 30px;
+    border-radius: 13px;
+    background-color: #af458e;
+    margin: 20px;
+  }
+  h3 {
+    text-align: center;
+  }
+}
