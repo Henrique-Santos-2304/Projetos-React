@@ -1,0 +1,25 @@
+{
+    "sourceFile": "src/pages/_app.tsx",
+    "activeCommit": 1,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [],
+            "date": 1646275445472,
+            "name": "Commit-0",
+            "content": "import \"./styles/globals.css\";\nimport type { AppProps } from \"next/app\";\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  return <Component {...pageProps} />;\n}\n\nexport default MyApp;\n"
+        },
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1646275554594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1646275554593,
+            "name": "lear",
+            "content": "import \"../../styles/globals.css\";\nimport type { AppProps } from \"next/app\";\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  return <Component {...pageProps} />;\n}\n\nexport default MyApp;\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/SearchProduct/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1646275142966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1646275390690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,21 @@\n+import { Product } from \"../Product\";\n \n-interface SearchResultsProps ={\n+interface SearchResultsProps {\n   results: Array<{\n-    id:number;\n+    id: number;\n     price: number;\n     title: string;\n-  }\n+  }>;\n }\n \n-const SearchProduct = () => {\n\\ No newline at end of file\n-  return (<div></div>)\n-}\n+const SearchProduct = ({ results }: SearchResultsProps) => {\n+  return (\n+    <div>\n+      {results.map((result) => (\n+        <Product product={result} />\n+      ))}\n+    </div>\n+  );\n+};\n \n-export {SearchProduct};\n+export { SearchProduct };\n"
+                },
+                {
+                    "date": 1646275403374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n const SearchProduct = ({ results }: SearchResultsProps) => {\n   return (\n     <div>\n       {results.map((result) => (\n-        <Product product={result} />\n+        <Product key={result.id} product={result} />\n       ))}\n     </div>\n   );\n };\n"
+                }
+            ],
+            "date": 1646275142966,
+            "name": "Commit-0",
+            "content": "\ninterface SearchResultsProps ={\n  results: Array<{\n    id:number;\n    price: number;\n    title: string;\n  }\n}\n\nconst SearchProduct = () => {\n  return (<div></div>)\n}\n\nexport {SearchProduct};"
+        }
+    ]
+}

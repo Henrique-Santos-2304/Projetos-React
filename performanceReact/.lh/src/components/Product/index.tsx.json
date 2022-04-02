@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/components/Product/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1646275304231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1646275354817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,11 @@\n     title: string;\n   };\n }\n \n-const Product = ({ product }: ProductProps) => {};\n+const Product = ({ product }: ProductProps) => (\n+  <p>\n+    {product.title} <strong>{product.price}</strong>\n+  </p>\n+);\n \n export { Product };\n"
+                },
+                {
+                    "date": 1646275360804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n }\n \n const Product = ({ product }: ProductProps) => (\n   <p>\n-    {product.title} <strong>{product.price}</strong>\n+    {product.title}: <strong>{product.price}</strong>\n   </p>\n );\n \n export { Product };\n"
+                },
+                {
+                    "date": 1646275374398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n }\n \n const Product = ({ product }: ProductProps) => (\n   <p>\n-    {product.title}: <strong>{product.price}</strong>\n+    {product.title}:{\" \"}\n+    <strong style={{ marginLeft: \"1rem\" }}>{product.price}</strong>\n   </p>\n );\n \n export { Product };\n"
+                },
+                {
+                    "date": 1646281968790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,18 @@\n+import { memo } from \"react\";\n+\n interface ProductProps {\n   product: {\n     id: number;\n     price: number;\n     title: string;\n   };\n }\n \n-const Product = ({ product }: ProductProps) => (\n+const ProductComponent = ({ product }: ProductProps) => (\n   <p>\n     {product.title}:{\" \"}\n     <strong style={{ marginLeft: \"1rem\" }}>{product.price}</strong>\n   </p>\n );\n \n-export { Product };\n+export const Product = memo(ProductComponent);\n"
+                },
+                {
+                    "date": 1646282285290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,7 @@\n     <strong style={{ marginLeft: \"1rem\" }}>{product.price}</strong>\n   </p>\n );\n \n-export const Product = memo(ProductComponent);\n+export const Product = memo(ProductComponent, (prev, next) =>\n+  Object.is(prev, next)\n+);\n"
+                },
+                {
+                    "date": 1646282606188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,6 +15,6 @@\n   </p>\n );\n \n export const Product = memo(ProductComponent, (prev, next) =>\n-  Object.is(prev, next)\n+  Object.is(prev.product, next.product)\n );\n"
+                },
+                {
+                    "date": 1646282776268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,7 @@\n     <strong style={{ marginLeft: \"1rem\" }}>{product.price}</strong>\n   </p>\n );\n \n-export const Product = memo(ProductComponent, (prev, next) =>\n-  Object.is(prev.product, next.product)\n-);\n+export const Product = memo(ProductComponent, (prev, next) => {\n+  return Object.is(prev.product, next.product);\n+});\n"
+                }
+            ],
+            "date": 1646275304230,
+            "name": "Commit-0",
+            "content": "interface ProductProps {\n  product: {\n    id: number;\n    price: number;\n    title: string;\n  };\n}\n\nconst Product = ({ product }: ProductProps) => {};\n\nexport { Product };\n"
+        }
+    ]
+}

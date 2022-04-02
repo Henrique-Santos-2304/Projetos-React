@@ -1,0 +1,94 @@
+{
+    "sourceFile": "src/pages/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 19,
+            "patches": [
+                {
+                    "date": 1646274914208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1646274930735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,21 @@\n import type { NextPage } from \"next\";\n-import { FormEvent, useState } from 'react';\n+import { FormEvent, useState } from \"react\";\n \n const Home: NextPage = () => {\n-  const [search, setSearch] =useState('')\n-  const handleSearch = (event: FormEvent) => {\n-\n-  }\n-  return <div>\n-    <h1>Pesquisa</h1>\n-    <form onSubmit={handleSearch}>\n-      <input type=\"text\" value={search} onChange={event => setSearch(event.target.value)}\n-    </form>\n-  </div>;\n+  const [search, setSearch] = useState(\"\");\n+  const handleSearch = (event: FormEvent) => {};\n+  return (\n+    <div>\n+      <h1>Pesquisa</h1>\n+      <form onSubmit={handleSearch}>\n+        <input\n+          type=\"text\"\n+          value={search}\n+          onChange={(event) => setSearch(event.target.value)}\n+        />\n+      </form>\n+    </div>\n+  );\n };\n \n export default Home;\n"
+                },
+                {
+                    "date": 1646274944056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n           type=\"text\"\n           value={search}\n           onChange={(event) => setSearch(event.target.value)}\n         />\n+        <button type=\"submit\">Enviar</button>n\n       </form>\n     </div>\n   );\n };\n"
+                },
+                {
+                    "date": 1646274967846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { FormEvent, useState } from \"react\";\n \n const Home: NextPage = () => {\n   const [search, setSearch] = useState(\"\");\n+  const [result, setResult] = useState(\"\");\n   const handleSearch = (event: FormEvent) => {};\n   return (\n     <div>\n       <h1>Pesquisa</h1>\n"
+                },
+                {
+                    "date": 1646275592190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n           type=\"text\"\n           value={search}\n           onChange={(event) => setSearch(event.target.value)}\n         />\n-        <button type=\"submit\">Enviar</button>n\n+        <button type=\"submit\">Enviar</button>\n       </form>\n     </div>\n   );\n };\n"
+                },
+                {
+                    "date": 1646275612942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   const [search, setSearch] = useState(\"\");\n   const [result, setResult] = useState(\"\");\n   const handleSearch = (event: FormEvent) => {};\n   return (\n-    <div>\n+    <div style={{ marginLeft: \"5rem\" }}>\n       <h1>Pesquisa</h1>\n       <form onSubmit={handleSearch}>\n         <input\n           type=\"text\"\n"
+                },
+                {
+                    "date": 1646275763442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,14 @@\n \n const Home: NextPage = () => {\n   const [search, setSearch] = useState(\"\");\n   const [result, setResult] = useState(\"\");\n-  const handleSearch = (event: FormEvent) => {};\n+  const handleSearch = async (event: FormEvent) => {\n+    const result: any = await fetch(\n+      `http://localhost:3333/products?q=${result}`\n+    );\n+    const data = await result.json();\n+  };\n   return (\n     <div style={{ marginLeft: \"5rem\" }}>\n       <h1>Pesquisa</h1>\n       <form onSubmit={handleSearch}>\n"
+                },
+                {
+                    "date": 1646275792870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,13 @@\n   const [search, setSearch] = useState(\"\");\n   const [result, setResult] = useState(\"\");\n   const handleSearch = async (event: FormEvent) => {\n     const result: any = await fetch(\n-      `http://localhost:3333/products?q=${result}`\n+      `http://localhost:3333/products?q=${search}`\n     );\n     const data = await result.json();\n+\n+    setResult(data);\n   };\n   return (\n     <div style={{ marginLeft: \"5rem\" }}>\n       <h1>Pesquisa</h1>\n"
+                },
+                {
+                    "date": 1646275798895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { FormEvent, useState } from \"react\";\n \n const Home: NextPage = () => {\n   const [search, setSearch] = useState(\"\");\n-  const [result, setResult] = useState(\"\");\n+  const [result, setResult] = useState([]);\n   const handleSearch = async (event: FormEvent) => {\n     const result: any = await fetch(\n       `http://localhost:3333/products?q=${search}`\n     );\n"
+                },
+                {
+                    "date": 1646275828917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import type { NextPage } from \"next\";\n import { FormEvent, useState } from \"react\";\n+import { SearchProduct } from \"../components/SearchProduct\";\n \n const Home: NextPage = () => {\n   const [search, setSearch] = useState(\"\");\n   const [result, setResult] = useState([]);\n@@ -22,8 +23,9 @@\n           onChange={(event) => setSearch(event.target.value)}\n         />\n         <button type=\"submit\">Enviar</button>\n       </form>\n+      <SearchProduct results={result} />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1646275969127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n const Home: NextPage = () => {\n   const [search, setSearch] = useState(\"\");\n   const [result, setResult] = useState([]);\n   const handleSearch = async (event: FormEvent) => {\n+    event.preventDefault();\n     const result: any = await fetch(\n       `http://localhost:3333/products?q=${search}`\n     );\n     const data = await result.json();\n"
+                },
+                {
+                    "date": 1646275995980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,12 @@\n   const [search, setSearch] = useState(\"\");\n   const [result, setResult] = useState([]);\n   const handleSearch = async (event: FormEvent) => {\n     event.preventDefault();\n+\n+    if (!search.trim()) {\n+      return;\n+    }\n     const result: any = await fetch(\n       `http://localhost:3333/products?q=${search}`\n     );\n     const data = await result.json();\n"
+                },
+                {
+                    "date": 1646276011301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,12 @@\n \n     if (!search.trim()) {\n       return;\n     }\n-    const result: any = await fetch(\n+    const response: any = await fetch(\n       `http://localhost:3333/products?q=${search}`\n     );\n-    const data = await result.json();\n+    const data = await response.json();\n \n     setResult(data);\n   };\n   return (\n"
+                },
+                {
+                    "date": 1646276092838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,10 @@\n       `http://localhost:3333/products?q=${search}`\n     );\n     const data = await response.json();\n \n+    console.log(data);\n+\n     setResult(data);\n   };\n   return (\n     <div style={{ marginLeft: \"5rem\" }}>\n"
+                },
+                {
+                    "date": 1646276244492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,9 @@\n \n     if (!search.trim()) {\n       return;\n     }\n-    const response: any = await fetch(\n-      `http://localhost:3333/products?q=${search}`\n-    );\n+    const response: any = await fetch(`http://localhost:3333/products`);\n     const data = await response.json();\n \n     console.log(data);\n \n"
+                },
+                {
+                    "date": 1646276331322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     if (!search.trim()) {\n       return;\n     }\n-    const response: any = await fetch(`http://localhost:3333/products`);\n+    const response = await fetch(`http://localhost:3333/products?q=${search}`);\n     const data = await response.json();\n \n     console.log(data);\n \n"
+                },
+                {
+                    "date": 1646276348284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     if (!search.trim()) {\n       return;\n     }\n-    const response = await fetch(`http://localhost:3333/products?q=${search}`);\n+    const response = await fetch(`http://localhost:3333`);\n     const data = await response.json();\n \n     console.log(data);\n \n"
+                },
+                {
+                    "date": 1646276381009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n     if (!search.trim()) {\n       return;\n     }\n-    const response = await fetch(`http://localhost:3333`);\n+    const response = await fetch(`http://localhost:3333/products?q=${search}`);\n     const data = await response.json();\n \n     console.log(data);\n \n"
+                },
+                {
+                    "date": 1646276446186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,10 @@\n     }\n     const response = await fetch(`http://localhost:3333/products?q=${search}`);\n     const data = await response.json();\n \n+    console.log(search);\n+\n     console.log(data);\n \n     setResult(data);\n   };\n"
+                },
+                {
+                    "date": 1646276568829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,8 @@\n     }\n     const response = await fetch(`http://localhost:3333/products?q=${search}`);\n     const data = await response.json();\n \n-    console.log(search);\n-\n     console.log(data);\n \n     setResult(data);\n   };\n"
+                }
+            ],
+            "date": 1646274914208,
+            "name": "Commit-0",
+            "content": "import type { NextPage } from \"next\";\nimport { FormEvent, useState } from 'react';\n\nconst Home: NextPage = () => {\n  const [search, setSearch] =useState('')\n  const handleSearch = (event: FormEvent) => {\n\n  }\n  return <div>\n    <h1>Pesquisa</h1>\n    <form onSubmit={handleSearch}>\n      <input type=\"text\" value={search} onChange={event => setSearch(event.target.value)}\n    </form>\n  </div>;\n};\n\nexport default Home;\n"
+        }
+    ]
+}
